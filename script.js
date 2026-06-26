@@ -1,5 +1,5 @@
 // ===== TYPEWRITER EFFECT =====
-const fullName = "Alex Johnson"; // <-- Change this to your name
+const fullName = "Jyrha Mae Gastador"; // <-- Change this to your name
 let i = 0;
 const nameEl = document.getElementById("typedName");
 
