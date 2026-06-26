@@ -1,5 +1,5 @@
 // ===== TYPEWRITER EFFECT =====
-const fullName = "Jyrha Mae Gastador"; // <-- Change this to your name
+const fullName = "Alex Johnson"; // <-- Change this to your name
 let i = 0;
 const nameEl = document.getElementById("typedName");
 
@@ -12,6 +12,24 @@ function typeWriter() {
 }
 window.addEventListener("DOMContentLoaded", () => {
   setTimeout(typeWriter, 800);
+});
+
+// ===== CENTERED ANCHOR SCROLL =====
+// When a nav link is clicked, scroll so the section top sits at the
+// middle of the viewport rather than the very top of the page.
+document.querySelectorAll('.nav-links a[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const id     = link.getAttribute('href').slice(1);
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    const sectionTop = target.getBoundingClientRect().top + window.scrollY;
+    const centeredY  = sectionTop - (window.innerHeight / 2);
+
+    window.scrollTo({ top: Math.max(0, centeredY), behavior: 'smooth' });
+    history.pushState(null, '', '#' + id); // update URL without jumping
+  });
 });
 
 // ===== DARK MODE TOGGLE =====
