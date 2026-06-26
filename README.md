@@ -1,15 +1,8 @@
-# Portfolio — Computer Engineering Student
+# Jyrha Mae Gastador's Portfolio
 
 A PCB + Breadboard themed portfolio website. Built with vanilla HTML, CSS, and JavaScript.
 
-## 🚀 Deploy to GitHub Pages
-
-1. Create a new GitHub repo (e.g. `portfolio`)
-2. Push all files to the `main` branch
-3. Go to **Settings → Pages → Branch: main → / (root)** → Save
-4. Your site will be live at `https://yourusername.github.io/portfolio/`
-
-## ✏️ Customization Checklist
+Link: [https://jyrhamae.github.io/portfolio/](https://jyrhamae.github.io/portfolio/)
 
 ### `index.html`
 - [ ] Replace `Alex Johnson` in every reference with your name
