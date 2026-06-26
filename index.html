@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Computer Engineering Student</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-label">REV 1.0 // SHEET 1 OF 1</div>
+    <ul class="nav-links">
+      <li><span class="led led-green"></span><a href="#about">About</a></li>
+      <li><span class="led led-green"></span><a href="#projects">Projects</a></li>
+      <li><span class="led led-green"></span><a href="#skills">Skills</a></li>
+      <li><span class="led led-green"></span><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="theme-toggle-wrap">
+      <span class="toggle-label">DARK</span>
+      <div class="slide-switch" id="themeToggle" onclick="toggleTheme()">
+        <div class="switch-knob"></div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-decorations">
+      <div class="resistor r1"></div>
+      <div class="resistor r2"></div>
+      <div class="capacitor c1"></div>
+      <div class="led-cluster">
+        <span class="big-led blink-slow" style="--clr:#22c55e"></span>
+        <span class="big-led blink-mid"  style="--clr:#3b82f6"></span>
+        <span class="big-led blink-fast" style="--clr:#f59e0b"></span>
+        <span class="big-led blink-slow" style="--clr:#ef4444"></span>
+      </div>
+    </div>
+
+    <div class="oled-module">
+      <div class="oled-corner tl"></div>
+      <div class="oled-corner tr"></div>
+      <div class="oled-corner bl"></div>
+      <div class="oled-corner br"></div>
+      <div class="oled-screen">
+        <div class="oled-line dim">&gt; BOOT SEQUENCE COMPLETE</div>
+        <div class="oled-line dim">&gt; LOADING PORTFOLIO...</div>
+        <div class="oled-name" id="typedName"></div>
+        <div class="oled-title">Computer Engineering Student</div>
+        <div class="oled-tagline">Building tomorrow's silicon, one schematic at a time.</div>
+        <span class="cursor">█</span>
+      </div>
+    </div>
+
+    <div class="hero-buttons">
+      <button class="tact-btn primary" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">
+        <span class="btn-cap">View Projects</span>
+        <div class="btn-pins">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </button>
+      <button class="tact-btn secondary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+        <span class="btn-cap">Contact Me</span>
+        <div class="btn-pins">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </button>
+    </div>
+
+    <div class="trace-line hero-trace"></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="section-header">
+      <div class="trace-dot"></div>
+      <h2 class="section-title">// ABOUT_ME</h2>
+      <div class="trace-line-h"></div>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-photo-wrap">
+        <div class="photo-placeholder">
+          <span>YOUR<br/>PHOTO</span>
+        </div>
+        <div class="jumper-wire jw1"></div>
+      </div>
+
+      <div class="about-text">
+        <p>Hi! I'm a passionate Computer Engineering student with a deep love for hardware design, digital logic, and pushing silicon to its limits. I enjoy bridging the gap between software and hardware — from writing RTL in Verilog to optimizing embedded firmware.</p>
+        <p>Currently exploring VLSI design, digital signal processing, and FPGA development. Always looking for opportunities to build real systems that solve real problems.</p>
+      </div>
+
+      <div class="datasheet-block">
+        <div class="ds-header">COMPONENT DATASHEET</div>
+        <table class="ds-table">
+          <tr><td class="ds-key">UNIVERSITY</td><td class="ds-val">Your University</td></tr>
+          <tr><td class="ds-key">MAJOR</td><td class="ds-val">Computer Engineering</td></tr>
+          <tr><td class="ds-key">GRAD YEAR</td><td class="ds-val">20XX</td></tr>
+          <tr><td class="ds-key">FOCUS AREA</td><td class="ds-val">Chip Design / VLSI</td></tr>
+          <tr><td class="ds-key">GPA</td><td class="ds-val">X.XX / 4.00</td></tr>
+          <tr><td class="ds-key">STATUS</td><td class="ds-val"><span class="status-led"></span> ACTIVE</td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section dark-section" id="projects">
+    <div class="section-header">
+      <div class="trace-dot"></div>
+      <h2 class="section-title">// PROJECTS</h2>
+      <div class="trace-line-h"></div>
+    </div>
+
+    <div class="projects-grid">
+
+      <div class="pcb-card">
+        <div class="card-label">MOD-01</div>
+        <div class="card-led" style="--led-clr: #22c55e"></div>
+        <div class="card-trace-bg"></div>
+        <h3 class="card-title">RISC-V CPU Core</h3>
+        <p class="card-desc">A 5-stage pipelined RISC-V processor implemented in SystemVerilog. Features hazard detection, forwarding unit, and branch prediction.</p>
+        <div class="card-tags">
+          <span class="smd-badge">SystemVerilog</span>
+          <span class="smd-badge">FPGA</span>
+          <span class="smd-badge">RTL</span>
+        </div>
+        <div class="card-actions">
+          <button class="tact-btn-sm">GitHub</button>
+          <button class="tact-btn-sm accent">Live Demo</button>
+        </div>
+      </div>
+
+      <div class="pcb-card">
+        <div class="card-label">MOD-02</div>
+        <div class="card-led" style="--led-clr: #f59e0b"></div>
+        <div class="card-trace-bg"></div>
+        <h3 class="card-title">OLED Driver IC</h3>
+        <p class="card-desc">Custom SSD1306-compatible OLED display driver written in C for bare-metal ARM Cortex-M4. Supports I2C and SPI modes.</p>
+        <div class="card-tags">
+          <span class="smd-badge">C</span>
+          <span class="smd-badge">ARM</span>
+          <span class="smd-badge">I2C/SPI</span>
+        </div>
+        <div class="card-actions">
+          <button class="tact-btn-sm">GitHub</button>
+          <button class="tact-btn-sm accent">Live Demo</button>
+        </div>
+      </div>
+
+      <div class="pcb-card">
+        <div class="card-label">MOD-03</div>
+        <div class="card-led" style="--led-clr: #ef4444"></div>
+        <div class="card-trace-bg"></div>
+        <h3 class="card-title">Neural Net Accelerator</h3>
+        <p class="card-desc">Systolic array-based matrix multiply accelerator for CNN inference, designed in Verilog and synthesized for Xilinx Artix-7.</p>
+        <div class="card-tags">
+          <span class="smd-badge">Verilog</span>
+          <span class="smd-badge">HLS</span>
+          <span class="smd-badge">Xilinx</span>
+        </div>
+        <div class="card-actions">
+          <button class="tact-btn-sm">GitHub</button>
+          <button class="tact-btn-sm accent">Live Demo</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS (Breadboard) -->
+  <section class="section" id="skills">
+    <div class="section-header">
+      <div class="trace-dot"></div>
+      <h2 class="section-title">// SKILLS</h2>
+      <div class="trace-line-h"></div>
+    </div>
+
+    <div class="breadboard-wrap">
+      <div class="breadboard">
+        <div class="power-rail top-rail">
+          <span class="rail-label">+5V</span>
+          <div class="rail-holes red"></div>
+        </div>
+        <div class="power-rail top-rail-neg">
+          <span class="rail-label">GND</span>
+          <div class="rail-holes blue"></div>
+        </div>
+
+        <div class="bb-body">
+          <div class="bb-category">
+            <div class="jumper-wire-h jw-lang"></div>
+            <span class="bb-cat-label">LANGUAGES</span>
+            <div class="bb-row">
+              <span class="smd-badge bb-comp">C / C++</span>
+              <span class="smd-badge bb-comp">Python</span>
+              <span class="smd-badge bb-comp">Verilog</span>
+              <span class="smd-badge bb-comp">SystemVerilog</span>
+              <span class="smd-badge bb-comp">VHDL</span>
+              <span class="smd-badge bb-comp">Assembly</span>
+            </div>
+          </div>
+
+          <div class="bb-category">
+            <div class="jumper-wire-h jw-hw"></div>
+            <span class="bb-cat-label">HARDWARE</span>
+            <div class="bb-row">
+              <span class="smd-badge bb-comp">FPGA</span>
+              <span class="smd-badge bb-comp">PCB Design</span>
+              <span class="smd-badge bb-comp">VLSI</span>
+              <span class="smd-badge bb-comp">Oscilloscope</span>
+              <span class="smd-badge bb-comp">Logic Analyzer</span>
+            </div>
+          </div>
+
+          <div class="bb-category">
+            <div class="jumper-wire-h jw-tools"></div>
+            <span class="bb-cat-label">TOOLS</span>
+            <div class="bb-row">
+              <span class="smd-badge bb-comp">Vivado</span>
+              <span class="smd-badge bb-comp">KiCad</span>
+              <span class="smd-badge bb-comp">Cadence</span>
+              <span class="smd-badge bb-comp">ModelSim</span>
+              <span class="smd-badge bb-comp">Git</span>
+              <span class="smd-badge bb-comp">Linux</span>
+            </div>
+          </div>
+
+          <div class="bb-category">
+            <div class="jumper-wire-h jw-fw"></div>
+            <span class="bb-cat-label">FRAMEWORKS</span>
+            <div class="bb-row">
+              <span class="smd-badge bb-comp">FreeRTOS</span>
+              <span class="smd-badge bb-comp">ARM CMSIS</span>
+              <span class="smd-badge bb-comp">HAL</span>
+              <span class="smd-badge bb-comp">OpenCL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="power-rail bot-rail">
+          <span class="rail-label">+3.3V</span>
+          <div class="rail-holes red"></div>
+        </div>
+        <div class="power-rail bot-rail-neg">
+          <span class="rail-label">GND</span>
+          <div class="rail-holes blue"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section dark-section" id="contact">
+    <div class="section-header">
+      <div class="trace-dot"></div>
+      <h2 class="section-title">// CONTACT</h2>
+      <div class="trace-line-h"></div>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-form-wrap">
+        <div class="form-field">
+          <label class="field-label">NAME <span class="field-led" id="led-name"></span></label>
+          <input class="schematic-input" type="text" placeholder="John Doe" id="inp-name" oninput="validateField('inp-name','led-name')" />
+        </div>
+        <div class="form-field">
+          <label class="field-label">EMAIL <span class="field-led" id="led-email"></span></label>
+          <input class="schematic-input" type="email" placeholder="you@example.com" id="inp-email" oninput="validateField('inp-email','led-email')" />
+        </div>
+        <div class="form-field">
+          <label class="field-label">MESSAGE <span class="field-led" id="led-msg"></span></label>
+          <textarea class="schematic-input" rows="4" placeholder="Your message..." id="inp-msg" oninput="validateField('inp-msg','led-msg')"></textarea>
+        </div>
+        <button class="tact-btn primary large" onclick="submitForm()">
+          <span class="btn-cap">TRANSMIT</span>
+          <div class="btn-pins"><span></span><span></span><span></span><span></span></div>
+        </button>
+        <p class="form-note" id="form-note"></p>
+      </div>
+
+      <div class="contact-links">
+        <a class="contact-link" href="https://github.com/" target="_blank">
+          <span class="cl-icon">⌥</span>
+          <div><span class="cl-label">GitHub</span><span class="cl-sub">@yourusername</span></div>
+        </a>
+        <a class="contact-link" href="https://linkedin.com/" target="_blank">
+          <span class="cl-icon">⊞</span>
+          <div><span class="cl-label">LinkedIn</span><span class="cl-sub">/in/yourname</span></div>
+        </a>
+        <a class="contact-link" href="mailto:you@email.com">
+          <span class="cl-icon">✉</span>
+          <div><span class="cl-label">Email</span><span class="cl-sub">you@email.com</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span class="mono">// EOF — Designed & Built by [Your Name] — </span>
+    <span class="mono accent-text">VCC=3.3V | GND=0V | REV1.0</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
