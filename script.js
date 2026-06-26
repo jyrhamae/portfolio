@@ -49,23 +49,29 @@ sections.forEach(s => observer.observe(s));
 function validateField(inputId, ledId) {
   const input = document.getElementById(inputId);
   const led = document.getElementById(ledId);
-  const isEmpty = input.value.trim() === "";
 
   if (inputId === "inp-email") {
     const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value);
     led.classList.toggle("active", valid);
   } else {
-    led.classList.toggle("active", !isEmpty);
+    led.classList.toggle("active", input.value.trim() !== "");
   }
 }
 
-function submitForm() {
-  const name  = document.getElementById("inp-name").value.trim();
-  const email = document.getElementById("inp-email").value.trim();
-  const msg   = document.getElementById("inp-msg").value.trim();
-  const note  = document.getElementById("form-note");
+// ===== CONTACT FORM — FORMSPREE SUBMIT =====
+// 1. Sign up free at https://formspree.io
+// 2. Create a form and paste your endpoint below:
+const FORMSPREE_URL = "https://formspree.io/f/YOUR_FORM_ID"; // <-- replace this
 
-  if (!name || !email || !msg) {
+async function submitForm() {
+  const name    = document.getElementById("inp-name").value.trim();
+  const email   = document.getElementById("inp-email").value.trim();
+  const message = document.getElementById("inp-msg").value.trim();
+  const note    = document.getElementById("form-note");
+  const btn     = document.querySelector(".tact-btn.primary.large .btn-cap");
+
+  // Basic validation
+  if (!name || !email || !message) {
     note.style.color = "#ef4444";
     note.textContent = "> ERROR: All fields required.";
     return;
@@ -75,14 +81,40 @@ function submitForm() {
     note.textContent = "> ERROR: Invalid email address.";
     return;
   }
-  note.style.color = "#22c55e";
-  note.textContent = "> SIGNAL TRANSMITTED. Message queued successfully.";
-  document.getElementById("inp-name").value = "";
-  document.getElementById("inp-email").value = "";
-  document.getElementById("inp-msg").value = "";
-  ["led-name","led-email","led-msg"].forEach(id => {
-    document.getElementById(id).classList.remove("active");
-  });
+
+  // Show sending state
+  btn.textContent = "TRANSMITTING...";
+  note.style.color = "#f59e0b";
+  note.textContent = "> SIGNAL SENDING...";
+
+  try {
+    const response = await fetch(FORMSPREE_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify({ name, email, message }),
+    });
+
+    if (response.ok) {
+      note.style.color = "#22c55e";
+      note.textContent = "> TRANSMISSION COMPLETE. Message received!";
+      // Clear form
+      document.getElementById("inp-name").value = "";
+      document.getElementById("inp-email").value = "";
+      document.getElementById("inp-msg").value = "";
+      ["led-name","led-email","led-msg"].forEach(id =>
+        document.getElementById(id).classList.remove("active")
+      );
+    } else {
+      const data = await response.json();
+      note.style.color = "#ef4444";
+      note.textContent = "> ERROR: " + (data?.errors?.[0]?.message || "Transmission failed.");
+    }
+  } catch (err) {
+    note.style.color = "#ef4444";
+    note.textContent = "> ERROR: No connection. Check your network.";
+  } finally {
+    btn.textContent = "TRANSMIT";
+  }
 }
 
 // ===== SCROLL REVEAL =====
