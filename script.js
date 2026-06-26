@@ -1,5 +1,5 @@
 // ===== TYPEWRITER EFFECT =====
-const fullName = "Alex Johnson"; // <-- Change this to your name
+const fullName = "Jyrha Mae Gastador";
 let i = 0;
 const nameEl = document.getElementById("typedName");
 
@@ -27,7 +27,7 @@ document.querySelectorAll('.nav-links a[href^="#"]').forEach(link => {
     const sectionTop = target.getBoundingClientRect().top + window.scrollY;
     const centeredY  = sectionTop - (window.innerHeight / 2);
 
-    window.scrollTo({ top: Math.max(0, centeredY), behavior: 'smooth' });
+    window.scrollTo({ top: Math.max(-10, centeredY), behavior: 'smooth' });
     history.pushState(null, '', '#' + id); // update URL without jumping
   });
 });
