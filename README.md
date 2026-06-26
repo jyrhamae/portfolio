@@ -1,7 +1,5 @@
 # Jyrha Mae Gastador's Portfolio
 
-A PCB + Breadboard themed portfolio website. Built with vanilla HTML, CSS, and JavaScript.
-
 Link: [https://jyrhamae.github.io/portfolio/](https://jyrhamae.github.io/portfolio/)
 
 ## File Structure
