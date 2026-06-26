@@ -4,18 +4,7 @@ A PCB + Breadboard themed portfolio website. Built with vanilla HTML, CSS, and J
 
 Link: [https://jyrhamae.github.io/portfolio/](https://jyrhamae.github.io/portfolio/)
 
-### `index.html`
-- [ ] Replace `Alex Johnson` in every reference with your name
-- [ ] Update the **About Me** paragraph with your real bio
-- [ ] Fill in the **Datasheet** table (university, GPA, graduation year, focus area)
-- [ ] Replace the 3 project cards with your real projects
-- [ ] Update GitHub/LinkedIn/email links in the Contact section
-- [ ] Update skill badges to match your actual skills
-
-### `script.js`
-- [ ] Line 2: Change `"Alex Johnson"` to your real name
-
-## 📁 File Structure
+## File Structure
 ```
 portfolio/
 ├── index.html   # Main page
@@ -24,7 +13,7 @@ portfolio/
 └── README.md    # This file
 ```
 
-## 🎨 Theme Tokens (style.css :root)
+## Theme Tokens (style.css :root)
 | Variable | Default | Purpose |
 |---|---|---|
 | `--paper` | `#F5F0E8` | Background color |
