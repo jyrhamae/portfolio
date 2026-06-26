@@ -1,5 +1,5 @@
 // ===== TYPEWRITER EFFECT =====
-const fullName = "Jyrha Mae Gastador"; // <-- Change this to your name
+const fullName = "Alex Johnson"; // <-- Change this to your name
 let i = 0;
 const nameEl = document.getElementById("typedName");
 
@@ -22,28 +22,37 @@ function toggleTheme() {
 }
 
 // ===== ACTIVE NAV LED =====
-const sections = document.querySelectorAll("section[id]");
+// Lights the LED for whichever section is currently on screen.
+// A section is "active" when its top edge has scrolled above the
+// mid-point of the viewport, so the LED switches the moment you
+// actually reach that section — not just when it partially appears.
 const navLEDs = document.querySelectorAll(".nav-links .led");
+const navIds  = ["about", "projects", "skills", "contact"];
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const id = entry.target.id;
-      const navIds = ["about", "projects", "skills", "contact"];
-      navLEDs.forEach((led, idx) => {
-        if (navIds[idx] === id) {
-          led.style.background = "#22c55e";
-          led.style.boxShadow = "0 0 8px #22c55e";
-        } else {
-          led.style.background = "#1a3a1a";
-          led.style.boxShadow = "none";
-        }
-      });
+function updateActiveNav() {
+  const mid = window.innerHeight / 2;
+  let activeId = null;
+
+  // Walk sections in order; keep updating activeId as long as the
+  // section's top is above the viewport mid-point. The last one
+  // that qualifies is the one the user is currently reading.
+  for (const id of navIds) {
+    const el = document.getElementById(id);
+    if (!el) continue;
+    if (el.getBoundingClientRect().top <= mid) {
+      activeId = id;
     }
-  });
-}, { threshold: 0.3 });
+  }
 
-sections.forEach(s => observer.observe(s));
+  navLEDs.forEach((led, idx) => {
+    const isActive = navIds[idx] === activeId;
+    led.style.background  = isActive ? "#22c55e" : "#1a3a1a";
+    led.style.boxShadow   = isActive ? "0 0 8px #22c55e" : "none";
+  });
+}
+
+window.addEventListener("scroll", updateActiveNav, { passive: true });
+updateActiveNav(); // run once on load
 
 // ===== CONTACT FORM VALIDATION =====
 function validateField(inputId, ledId) {

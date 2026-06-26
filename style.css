@@ -377,7 +377,7 @@ body {
 /* ===== PROJECTS ===== */
 .projects-grid {
   display:grid; grid-template-columns:repeat(3,1fr); gap:28px;
-  padding: 0 40px;
+  width: 100%;
 }
 
 .pcb-card {
@@ -512,7 +512,7 @@ body {
 /* ===== CONTACT ===== */
 .contact-grid {
   display:grid; grid-template-columns:1fr 280px; gap:48px;
-  padding: 0 40px;
+  width: 100%;
 }
 
 .form-field { margin-bottom:20px; }
